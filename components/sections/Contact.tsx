@@ -26,19 +26,19 @@ export default function Contact() {
                             <div className="p-3 bg-white/5 rounded-full border border-white/10">
                                 <Mail className="w-6 h-6 text-primary" />
                             </div>
-                            <a href="mailto:contact@example.com" className="hover:text-primary transition-colors">contact@example.com</a>
+                            <a href="mailto:inbox.tejasekhande@gmail.com" className="hover:text-primary transition-colors">inbox.tejasekhande@gmail.com</a>
                         </div>
                         <div className="flex items-center gap-4 text-foreground/80">
                             <div className="p-3 bg-white/5 rounded-full border border-white/10">
                                 <Phone className="w-6 h-6 text-secondary" />
                             </div>
-                            <span>+1 (555) 123-4567</span>
+                            <span>+91 7558739236</span>
                         </div>
                         <div className="flex items-center gap-4 text-foreground/80">
                             <div className="p-3 bg-white/5 rounded-full border border-white/10">
                                 <MapPin className="w-6 h-6 text-accent" />
                             </div>
-                            <span>San Francisco, CA</span>
+                            <span>Pune, Maharashtra</span>
                         </div>
                     </div>
                 </motion.div>
