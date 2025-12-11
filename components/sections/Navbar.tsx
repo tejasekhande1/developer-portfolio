@@ -53,7 +53,7 @@ export default function Navbar() {
                         </Link>
                     ))}
 
-                    {mounted && (
+                    {/* {mounted && (
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
@@ -61,7 +61,7 @@ export default function Navbar() {
                         >
                             {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
                         </button>
-                    )}
+                    )} */}
 
                     <Button size="sm" variant="outline" onClick={() => window.open("/resume.pdf")}>
                         Resume
