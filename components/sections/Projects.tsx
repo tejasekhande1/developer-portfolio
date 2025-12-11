@@ -10,6 +10,7 @@ import Image from "next/image";
 // Placeholder data - user can replace this
 const projects = [
     {
+        id: 1,
         title: "E-Commerce Platform",
         description: "A full-featured shopping platform with cart, checkout, and admin dashboard.",
         tags: ["Next.js", "TypeScript", "Stripe", "Prisma"],
@@ -17,6 +18,7 @@ const projects = [
         image: null // Using placeholder styling if null
     },
     {
+        id: 2,
         title: "Task Management App",
         description: "Collaborative project management tool with ease-of-use in mind.",
         tags: ["React", "Firebase", "Tailwind"],
@@ -24,6 +26,7 @@ const projects = [
         image: null
     },
     {
+        id: 3,
         title: "AI Chat Interface",
         description: "Modern chat interface integration with OpenAI API.",
         tags: ["Next.js", "OpenAI", "Radix UI"],
@@ -47,7 +50,11 @@ export default function Projects() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projects.map((project, index) => (
-                    <Card key={index} className="flex flex-col h-full group" hoverEffect={true}>
+                    <Card
+                        key={project.id}
+                        className="flex flex-col h-full bg-transparent" // Clean background to let Card styles Take over
+                        data-cursor="card"
+                    >
                         <div className="aspect-video bg-white/5 rounded-xl mb-4 overflow-hidden relative">
                             {/* Placeholder or Image */}
                             <div className="absolute inset-0 flex items-center justify-center text-foreground/20 group-hover:scale-105 transition-transform duration-500">

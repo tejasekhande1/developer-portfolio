@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import Button from "../ui/Button";
 import Section from "../ui/Section";
+import MagnifiedText from "../ui/MagnifiedText";
 
 export default function Hero() {
     return (
@@ -25,13 +26,19 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
+                    className="relative"
                 >
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-2">
-                        Tejas Ekhande.
-                    </h1>
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground/60">
-                        I craft modern, high-performance digital experiences.
-                    </h2>
+                    <div className="mb-2">
+                        <MagnifiedText className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
+                            Tejas Ekhande.
+                        </MagnifiedText>
+                    </div>
+
+                    <div className="text-4xl md:text-6xl font-bold tracking-tight text-foreground/50">
+                        <MagnifiedText>
+                            I build exceptional web applications.
+                        </MagnifiedText>
+                    </div>
                 </motion.div>
 
                 <motion.p
@@ -40,9 +47,8 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-lg text-foreground/60 max-w-2xl leading-relaxed"
                 >
-                    I'm a Full-Stack Developer with a passion for building fast, scalable,
-                    and user-focused web applications. I blend clean architecture with
-                    stunning UI to create digital products that feel effortless to use.
+                    I'm a Full Stack Developer specializing in building robust and scalable web applications.
+                    Currently focused on creating accessible, pixel-perfect user experiences.
                 </motion.p>
 
                 <motion.div

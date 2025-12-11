@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   description: "Full-stack developer portfolio showcasing projects and skills.",
 };
 
+import CustomCursor from "@/components/ui/CustomCursor";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} antialiased bg-background text-foreground`}
+        className={`${outfit.variable} antialiased bg-background text-foreground cursor-none`}
       >
         <ThemeProvider
           attribute="class"
@@ -29,6 +31,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <CustomCursor />
           {children}
         </ThemeProvider>
       </body>

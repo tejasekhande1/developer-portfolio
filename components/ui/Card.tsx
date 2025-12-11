@@ -16,8 +16,8 @@ export default function Card({ children, className, hoverEffect = true }: CardPr
             viewport={{ once: true }}
             whileHover={hoverEffect ? { y: -5 } : {}}
             className={twMerge(
-                "glass rounded-2xl p-6 transition-all duration-300",
-                hoverEffect && "glass-hover shadow-lg hover:shadow-[0_0_30px_rgba(139,92,246,0.15)]",
+                "glass rounded-2xl p-6 transition-all duration-300 border border-white/5",
+                hoverEffect && "hover:bg-white/5 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]",
                 className
             )}
         >
