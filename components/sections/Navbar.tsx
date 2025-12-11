@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import Button from "../ui/Button";
 
 const navLinks = [
@@ -15,6 +16,13 @@ const navLinks = [
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    // Avoid hydration mismatch
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     return (
         <motion.nav
@@ -38,18 +46,40 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
+
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                            aria-label="Toggle Theme"
+                        >
+                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                        </button>
+                    )}
+
                     <Button size="sm" variant="outline" onClick={() => window.open("/resume.pdf")}>
                         Resume
                     </Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden text-foreground"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="md:hidden flex items-center gap-4">
+                    {mounted && (
+                        <button
+                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                            aria-label="Toggle Theme"
+                        >
+                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                        </button>
+                    )}
+                    <button
+                        className="text-foreground"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
