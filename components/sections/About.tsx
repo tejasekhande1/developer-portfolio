@@ -10,19 +10,19 @@ const educationData = [
     {
         title: "Bachelor of Engineering, Computer Science",
         institution: "Smt. Kashibai Nawale College of Engineering, Pune",
-        period: "Jun 2021 - May 2024",
+        period: "Jul 2020 - Jun 2024",
         score: "9.23 CGPA",
     },
     {
         title: "HSC",
         institution: "Agasti Arts, Commerce and Dadasaheb Rupwate Science College, Akole",
-        period: "Jun 2019 - May 2020",
+        period: "Jun 2018 - Feb 2020",
         score: "77.85%",
     },
     {
         title: "SSC",
         institution: "Dnyanganga Vidyaniketan Manchi Hill, Sangamner",
-        period: "Jun 2015 - May 2018",
+        period: "Jun 2015 - Mar 2018",
         score: "92.40%",
     },
 ];
