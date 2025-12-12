@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Terminal, GitBranch, LayoutDashboard } from "lucide-react";
+import { ExternalLink, Github, Terminal, GitBranch, LayoutDashboard, Wrench } from "lucide-react";
 import Section from "../ui/Section";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
@@ -34,40 +34,92 @@ const projects = [
 ];
 
 const GitVisualization = () => (
-    <div className="w-full h-full bg-[#0d1117] relative overflow-hidden font-mono text-xs p-4 flex flex-col justify-center">
-        {/* Animated Git Graph */}
-        <div className="flex gap-4 items-center mb-2 text-foreground/50">
-            <GitBranch className="w-4 h-4" />
-            <span>main</span>
+    <div className="w-full h-full bg-[#0d1117] p-3 text-xs font-mono flex flex-col gap-3 relative overflow-hidden">
+        {/* Header */}
+        <div className="flex items-center justify-between text-white/50 border-b border-white/10 pb-2">
+            <div className="flex items-center gap-2">
+                <GitBranch className="w-3 h-3" />
+                <span className="text-[10px] font-bold tracking-wider">PROJECT ANALYTICS</span>
+            </div>
+            <div className="flex gap-2">
+                <div className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                    <span className="text-[8px] text-green-400">Live</span>
+                </div>
+            </div>
         </div>
-        <div className="relative pl-2 border-l border-white/20 h-32 space-y-4">
-            {[1, 2, 3].map((i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.5, duration: 0.5, repeat: Infinity, repeatDelay: 3 }}
-                    className="flex items-center gap-2"
-                >
-                    <div className="w-2 h-2 rounded-full bg-green-500 -ml-[5px] ring-4 ring-[#0d1117]" />
-                    <div className="bg-white/5 px-2 py-1 rounded text-foreground/70 w-full truncate">
-                        Commit #{1000 + i}: optimize...
+
+        {/* Heatmap Section */}
+        <div className="space-y-1">
+            <div className="text-[9px] uppercase tracking-wider text-white/30">Contribution Activity</div>
+            <div className="flex gap-[2px] opacity-80">
+                {Array.from({ length: 20 }).map((_, i) => (
+                    <div key={i} className="flex flex-col gap-[2px]">
+                        {Array.from({ length: 4 }).map((_, j) => {
+                            // Use deterministic value instead of Math.random() to prevent hydration mismatch
+                            const intensity = ((i * 7 + j * 3 + i * j) % 19) / 19;
+                            let color = "bg-white/5"; // Empty
+                            if (intensity > 0.8) color = "bg-[#2da44e]"; // High
+                            else if (intensity > 0.5) color = "bg-[#006d32]"; // Medium
+                            else if (intensity > 0.3) color = "bg-[#0e4429]"; // Low
+
+                            return (
+                                <motion.div
+                                    key={`${i}-${j}`}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: i * 0.02 + j * 0.02 }}
+                                    className={`w-2 h-2 rounded-[1px] ${color}`}
+                                />
+                            )
+                        })}
                     </div>
-                </motion.div>
-            ))}
-            {/* Branch Animation */}
-            <motion.div
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 1.5, delay: 1, repeat: Infinity, repeatDelay: 3 }}
-                className="absolute top-8 left-[9px] w-6 h-12 border-l-2 border-b-2 border-blue-500 rounded-bl-xl"
-            />
-            <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 2, repeat: Infinity, repeatDelay: 3 }}
-                className="absolute top-[68px] left-[28px] w-2 h-2 rounded-full bg-blue-500"
-            />
+                ))}
+            </div>
+        </div>
+
+        {/* File Analysis & Insights */}
+        <div className="flex gap-2 h-full">
+            {/* File Hotspots */}
+            <div className="flex-1 bg-white/5 rounded p-2 flex flex-col gap-1.5">
+                <div className="text-[9px] uppercase tracking-wider text-white/30 border-b border-white/5 pb-1 flex justify-between">
+                    <span>Hotspots</span>
+                    <span>Fixes</span>
+                </div>
+                <div className="space-y-1.5">
+                    {[
+                        { name: "auth-utils.ts", fixes: 18, severity: "high" },
+                        { name: "payment_gw.go", fixes: 8, severity: "medium" },
+                        { name: "main.tsx", fixes: 2, severity: "low" }
+                    ].map(file => (
+                        <div key={file.name} className="flex items-center justify-between group cursor-default">
+                            <span className="text-[9px] text-white/70 truncate max-w-[70px] group-hover:text-blue-400 transition-colors">{file.name}</span>
+                            <div className="flex items-center gap-1.5">
+                                <span className={`text-[8px] px-1 rounded ${file.severity === 'high' ? 'bg-red-500/20 text-red-400' :
+                                    file.severity === 'medium' ? 'bg-yellow-500/20 text-yellow-400' : 'bg-white/10 text-white/50'
+                                    }`}>
+                                    {file.fixes}
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Insights Panel */}
+            <div className="flex-1 flex flex-col gap-2">
+                {/* Refactor Suggestion Card */}
+                <div className="bg-blue-500/5 border border-blue-500/20 rounded p-2 flex flex-col justify-center h-full relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-1 opacity-20">
+                        <Wrench className="w-8 h-8 text-blue-500" />
+                    </div>
+                    <div className="text-[9px] text-blue-300 font-bold mb-1">AI INSIGHT</div>
+                    <p className="text-[9px] text-blue-200/70 leading-relaxed">
+                        High churn detected in <b className="text-white">auth-utils.ts</b>.
+                        Suggest refactoring module to reduce complexity.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 );
