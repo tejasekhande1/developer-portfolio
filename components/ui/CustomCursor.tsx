@@ -80,7 +80,7 @@ export default function CustomCursor() {
             className="fixed top-0 left-0 pointer-events-none"
             style={{ zIndex: 9999 }}
             animate={variants[variant as keyof typeof variants] || variants.default}
-            transition={{ type: "spring", stiffness: 500, damping: 28, mass: 0.5 }}
+            transition={{ type: "spring", stiffness: 1000, damping: 40, mass: 0.2 }}
         />
     );
 }
