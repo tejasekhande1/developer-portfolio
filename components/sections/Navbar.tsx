@@ -11,7 +11,6 @@ const navLinks = [
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Resume", href: "/resume.pdf", external: true },
 ];
 
 export default function Navbar() {
@@ -47,13 +46,15 @@ export default function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            target={link.external ? "_blank" : undefined}
-                            rel={link.external ? "noopener noreferrer" : undefined}
                             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                         >
                             {link.name}
                         </Link>
                     ))}
+
+                    <Button size="sm" variant="outline" onClick={() => window.open("/resume.pdf", "_blank")}>
+                        Resume
+                    </Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -89,14 +90,15 @@ export default function Navbar() {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                target={link.external ? "_blank" : undefined}
-                                rel={link.external ? "noopener noreferrer" : undefined}
                                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
+                        <Button size="sm" variant="outline" className="w-full" onClick={() => window.open("/resume.pdf", "_blank")}>
+                            Resume
+                        </Button>
                     </div>
                 </motion.div>
             )}
