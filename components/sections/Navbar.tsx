@@ -11,6 +11,7 @@ const navLinks = [
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "Resume", href: "/resume.pdf", external: true },
 ];
 
 export default function Navbar() {
@@ -46,25 +47,13 @@ export default function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
+                            target={link.external ? "_blank" : undefined}
+                            rel={link.external ? "noopener noreferrer" : undefined}
                             className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                         >
                             {link.name}
                         </Link>
                     ))}
-
-                    {/* {mounted && (
-                        <button
-                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-                            aria-label="Toggle Theme"
-                        >
-                            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-                        </button>
-                    )} */}
-
-                    <Button size="sm" variant="outline" onClick={() => window.open("/resume.pdf")}>
-                        Resume
-                    </Button>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -100,15 +89,14 @@ export default function Navbar() {
                             <Link
                                 key={link.name}
                                 href={link.href}
+                                target={link.external ? "_blank" : undefined}
+                                rel={link.external ? "noopener noreferrer" : undefined}
                                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <Button size="sm" variant="outline" className="w-full" onClick={() => window.open("/resume.pdf")}>
-                            Resume
-                        </Button>
                     </div>
                 </motion.div>
             )}
