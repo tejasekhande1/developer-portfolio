@@ -57,9 +57,13 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-wrap items-center gap-4 mt-4"
                 >
-                    <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                        <Mail className="mr-2 w-4 h-4" /> Contact Me
-                    </Button>
+
+                    <a href="mailto:inbox.tejasekhande@gmail.com">
+                        <Button>
+                            <Mail className="mr-2 w-4 h-4" />Contact Me
+                        </Button>
+                    </a>
+
 
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                         <Button variant="outline">
