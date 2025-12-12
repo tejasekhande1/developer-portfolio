@@ -61,7 +61,7 @@ export default function About() {
                             className={cn(
                                 "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border",
                                 activeTab === "education"
-                                    ? "bg-secondary/10 border-secondary text-secondary shadow-[0_0_15px_rgba(6,182,212,0.2)]"
+                                    ? "bbg-primary/10 border-primary text-primary shadow-[0_0_15px_rgba(37,99,235,0.2)]"
                                     : "bg-white/5 border-transparent text-foreground/60 hover:text-foreground hover:bg-white/10"
                             )}
                         >
