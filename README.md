@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tejas Ekhande | Full Stack Developer Portfolio
 
-## Getting Started
+Welcome to my personal portfolio repository! This project is a showcase of my skills, experience, and passion for building high-quality web applications. It is built with **Next.js 16**, **Tailwind CSS**, and **Framer Motion** to deliver a modern, performant, and highly interactive user experience.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+-   **Interactive Visualizations**:
+    -   *Git Contribution Graph*: Real-time heatmaps and file hotspot analysis.
+    -   *Live Terminal*: Backend log simulation.
+    -   *Admin Dashboard*: Data-rich widgets with revenue charts.
+    -   *Technical Expertise*: Interactive cards for Component Architecture, CI/CD, Database Optimization, and Payment Flows.
+-   **Razorpay Integration**: A fully simulated payment flow demonstration.
+-   **Glassmorphism Design**: A premium, dark-mode-first aesthetic with blur effects and smooth gradients.
+-   **Responsive Layout**: Optimized for all devices, from mobile phones to large desktops.
+-   **Performance Optimized**: Static export configuration for fast loading speeds.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   **Framework**: [Next.js 16](https://nextjs.org/) (React 19)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+-   **Icons**: [Lucide React](https://lucide.dev/)
+-   **Language**: [TypeScript](https://www.typescriptlang.org/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
 
-## Learn More
+-   `components/sections`: Main page sections (Hero, About, Skills, Projects, Expertise, Contact).
+-   `components/ui`: Reusable UI components (Cards, Buttons, Section wrappers).
+-   `app`: Next.js App Router configuration and global styles.
 
-To learn more about Next.js, take a look at the following resources:
+## 🏃‍♂️ Running Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/tejasekhande/developer-portfolio.git
+    cd developer-portfolio
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-## Deploy on Vercel
+3.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚢 Deployment
+
+This project is configured for static export (`output: "export"` in `next.config.ts`), making it easy to deploy to **GitHub Pages**, **Vercel**, or any static hosting service.
+
+---
+
+*Handcrafted with ❤️ by Tejas Ekhande.*
