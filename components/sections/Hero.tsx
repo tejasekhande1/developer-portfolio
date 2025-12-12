@@ -29,15 +29,13 @@ export default function Hero() {
                     className="relative"
                 >
                     <div className="mb-2">
-                        <MagnifiedText className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
+                        <span className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
                             Tejas Ekhande.
-                        </MagnifiedText>
+                        </span>
                     </div>
 
                     <div className="text-4xl md:text-6xl font-bold tracking-tight text-foreground/50">
-                        <MagnifiedText>
-                            I build exceptional web applications.
-                        </MagnifiedText>
+                        I turn ideas into clean, functional, and elegant web applications.
                     </div>
                 </motion.div>
 
