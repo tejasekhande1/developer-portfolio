@@ -27,8 +27,43 @@ const educationData = [
     },
 ];
 
+const experienceData = [
+    {
+        id: "noovosoft",
+        company: "Noovosoft Technologies LLP",
+        fullName: "Noovosoft Technologies LLP",
+        title: "Application Developer",
+        period: "Aug 2023 - Present",
+        location: "Pune",
+        description: [
+            "Developed and optimized full-stack web applications using Angular, Next.js and Django, improving page load speed by 40% and user retention by 25%.",
+            "Built modular, reusable components and collaborated with design and backend teams to deliver responsive interfaces.",
+            "Implemented database optimization and a localization framework supporting 5+ languages, ensuring scalability for 10,000+ users.",
+            "Achieved 98% test coverage, reducing bugs by 40%, and recognized as the second-highest frontend contributor for consistent delivery of high-quality, maintainable code."
+        ],
+        skills: ["Next.js", "Angular", "Django", "TypeScript", "PostgreSQL", "Tailwind CSS"]
+    },
+    {
+        id: "core2web",
+        company: "Core2web Technologies",
+        fullName: "Core2web Technologies",
+        title: "Mentor",
+        period: "Oct 2022 - Aug 2023",
+        location: "Pune",
+        description: [
+            "Mentored students in core programming concepts including Java, Python, and Data Structures.",
+            "Guided students through project development life cycles and code reviews.",
+            "Conducted technical sessions and workshops."
+        ],
+        skills: ["Java", "C++", "Data Structures", "Operating Systems", "Teaching", "Code Review"]
+    }
+];
+
 export default function About() {
-    const [activeTab, setActiveTab] = useState<"about" | "education">("about");
+    const [activeTab, setActiveTab] = useState<"about" | "education" | "experience">("about");
+    const [activeExperience, setActiveExperience] = useState(0);
+
+    const currentExperience = experienceData[activeExperience];
 
     return (
         <Section id="about">
@@ -43,8 +78,8 @@ export default function About() {
                         About <span className="text-gradient">Me</span>
                     </h2>
 
-                    {/* Tabs */}
-                    <div className="flex gap-4 mb-8">
+                    {/* Main Tabs */}
+                    <div className="flex flex-wrap gap-4 mb-8">
                         <button
                             onClick={() => setActiveTab("about")}
                             className={cn(
@@ -57,11 +92,22 @@ export default function About() {
                             My Story
                         </button>
                         <button
+                            onClick={() => setActiveTab("experience")}
+                            className={cn(
+                                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border",
+                                activeTab === "experience"
+                                    ? "bg-accent/10 border-accent text-accent shadow-[0_0_15px_rgba(139,92,246,0.2)]"
+                                    : "bg-white/5 border-transparent text-foreground/60 hover:text-foreground hover:bg-white/10"
+                            )}
+                        >
+                            Experience
+                        </button>
+                        <button
                             onClick={() => setActiveTab("education")}
                             className={cn(
                                 "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border",
                                 activeTab === "education"
-                                    ? "bbg-primary/10 border-primary text-primary shadow-[0_0_15px_rgba(37,99,235,0.2)]"
+                                    ? "bg-secondary/10 border-secondary text-secondary shadow-[0_0_15px_rgba(6,182,212,0.2)]"
                                     : "bg-white/5 border-transparent text-foreground/60 hover:text-foreground hover:bg-white/10"
                             )}
                         >
@@ -92,7 +138,7 @@ export default function About() {
                                         When I'm not coding, you can find me exploring new technologies, contributing to open source, or gaming.
                                     </p>
                                 </motion.div>
-                            ) : (
+                            ) : activeTab === "education" ? (
                                 <motion.div
                                     key="education"
                                     initial={{ opacity: 0, y: 20 }}
@@ -114,6 +160,69 @@ export default function About() {
                                             </div>
                                         </div>
                                     ))}
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="experience"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="space-y-6"
+                                >
+                                    {/* Company Tabs */}
+                                    <div className="flex space-x-1 bg-white/5 p-2 rounded-xl mb-6 w-fit">
+                                        {experienceData.map((exp, idx) => (
+                                            <button
+                                                key={exp.id}
+                                                onClick={() => setActiveExperience(idx)}
+                                                className={cn(
+                                                    "px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-300",
+                                                    activeExperience === idx
+                                                        ? "bg-accent text-white shadow-lg"
+                                                        : "text-foreground/60 hover:text-foreground hover:bg-white/5"
+                                                )}
+                                            >
+                                                {exp.company}
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    {/* Experience Details */}
+                                    <motion.div
+                                        key={currentExperience.id}
+                                        initial={{ opacity: 0, x: 10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -10 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <h3 className="text-xl font-bold text-foreground mb-1">{currentExperience.title}</h3>
+                                        <p className="text-accent text-sm font-medium mb-4">
+                                            {currentExperience.fullName}
+                                            <span className="text-foreground/40 font-normal ml-2">| {currentExperience.location}</span>
+                                        </p>
+
+                                        <div className="text-xs text-foreground/60 font-mono mb-4 bg-white/5 px-3 py-1 rounded w-fit border border-white/10">
+                                            {currentExperience.period}
+                                        </div>
+
+                                        <ul className="space-y-2 mb-6">
+                                            {currentExperience.description.map((desc, i) => (
+                                                <li key={i} className="text-sm text-foreground/80 flex items-start gap-2">
+                                                    <span className="text-accent mt-1.5">▹</span>
+                                                    {desc}
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {currentExperience.skills.map((skill) => (
+                                                <span key={skill} className="px-2 py-1 text-xs rounded bg-accent/10 border border-accent/20 text-accent">
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </motion.div>
                                 </motion.div>
                             )}
                         </AnimatePresence>
