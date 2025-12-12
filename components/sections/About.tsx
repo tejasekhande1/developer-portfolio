@@ -108,7 +108,7 @@ export default function About() {
 
                                             <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
                                             <p className="text-primary text-sm font-medium mb-1">{item.institution}</p>
-                                            <div className="flex justify-between items-center text-sm text-foreground/60 mt-1">
+                                            <div className="flex justify-between items-center text-xs text-foreground/60 mt-1">
                                                 <span>{item.period}</span>
                                                 <span className="">{item.score}</span>
                                             </div>
