@@ -11,19 +11,19 @@ const educationData = [
         title: "Bachelor of Engineering, Computer Science",
         institution: "Smt. Kashibai Nawale College of Engineering, Pune",
         period: "Jun 2021 - May 2024",
-        score: "CGPA: 9.23",
+        score: "9.23 CGPA",
     },
     {
         title: "HSC",
         institution: "Agasti Arts, Commerce and Dadasaheb Rupwate Science College, Akole",
         period: "Jun 2019 - May 2020",
-        score: "Percentage: 77.85%",
+        score: "77.85%",
     },
     {
         title: "SSC",
         institution: "Dnyanganga Vidyaniketan Manchi Hill, Sangamner",
         period: "Jun 2015 - May 2018",
-        score: "Percentage: 92.40%",
+        score: "92.40%",
     },
 ];
 
@@ -110,7 +110,7 @@ export default function About() {
                                             <p className="text-primary text-sm font-medium mb-1">{item.institution}</p>
                                             <div className="flex justify-between items-center text-sm text-foreground/60 mt-1">
                                                 <span>{item.period}</span>
-                                                <span className="font-mono text-secondary">{item.score}</span>
+                                                <span className="">{item.score}</span>
                                             </div>
                                         </div>
                                     ))}
