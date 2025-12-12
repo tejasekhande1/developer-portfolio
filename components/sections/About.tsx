@@ -126,21 +126,38 @@ export default function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="relative h-full min-h-[400px] hidden md:block" // Hide on small screens to save space or adjust
+                    className="relative h-full min-h-[400px] hidden md:flex items-center justify-center"
                 >
-                    <Card className="h-full flex flex-col items-center justify-center bg-linear-to-br from-white/5 to-white/0 border-white/10 relative overflow-hidden group">
-                        {/* Tech Sphere / Abstract Decoration */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-50 transition-opacity duration-500">
-                            <div className="relative w-64 h-64">
-                                <div className="absolute inset-0 border-2 border-primary/30 rounded-full animate-[spin_10s_linear_infinite]" />
-                                <div className="absolute inset-4 border-2 border-secondary/30 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-                                <div className="absolute inset-8 border border-white/10 rounded-full" />
-                            </div>
+
+                    <Card className="relative z-10 w-full max-w-md p-6 bg-white dark:bg-[#000212]/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl overflow-hidden group hover:border-primary/50 transition-colors duration-500">
+                        {/* Card Header (Mac OS window style) */}
+                        <div className="flex items-center gap-2 mb-6">
+                            <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                            <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
                         </div>
 
-                        <span className="text-foreground/20 text-6xl font-mono relative z-10">&lt;/&gt;</span>
+                        {/* Code Content */}
+                        <div className="font-mono text-sm leading-relaxed">
+                            <div className="text-pink-500 mb-2">const <span className="text-blue-400">techStack</span> = <span className="text-yellow-400">[</span></div>
+
+                            <div className="pl-4 flex flex-wrap gap-2 gap-y-3 mb-2">
+                                {["Angular", "React", "Next.js", "Django", "TypeScript", "Tailwind", "Node.js", "PostgreSQL", "AWS", "Docker"].map((tech) => (
+                                    <span key={tech} className="px-3 py-1 rounded-full bg-secondary/10 text-secondary border border-secondary/20 text-xs hover:bg-secondary/20 transition-colors">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="text-yellow-400">];</div>
+                        </div>
+
+                        {/* Subtle Glow */}
+                        <div className="absolute -z-10 -right-20 -bottom-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px] group-hover:bg-primary/30 transition-colors duration-500" />
                     </Card>
-                    <div className="absolute -z-10 top-10 -right-10 w-full h-full bg-primary/10 rounded-full blur-3xl"></div>
+
+                    {/* Background decoration */}
+                    <div className="absolute -z-10 w-full h-full bg-primary/5 rounded-full blur-3xl scale-75"></div>
                 </motion.div>
             </div>
         </Section>
