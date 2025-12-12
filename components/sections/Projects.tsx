@@ -291,15 +291,7 @@ export default function Projects() {
                             {project.type === "backend" && <BackendVisualization />}
                             {project.type === "dashboard" && <DashboardVisualization />}
 
-                            {/* Hover Overlay with Links - Optional if user wants them accessible on hover */}
-                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px]">
-                                <Button size="sm" variant="secondary" onClick={() => window.open(project.links.demo)}>
-                                    <ExternalLink size={16} /> Demo
-                                </Button>
-                                <Button size="sm" variant="outline" onClick={() => window.open(project.links.code)}>
-                                    <Github size={16} /> Code
-                                </Button>
-                            </div>
+
                         </div>
 
                         <div className="p-6 flex flex-col grow">
