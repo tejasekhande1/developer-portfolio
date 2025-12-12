@@ -235,7 +235,7 @@ export default function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="relative h-full min-h-[400px] hidden md:flex items-center justify-center"
+                    className="relative h-full min-h-[400px] hidden md:flex items-start justify-center pt-10"
                 >
 
                     <Card className="relative z-10 w-full max-w-md p-6 bg-white dark:bg-[#000212]/80 backdrop-blur-xl border border-white/10 shadow-2xl rounded-2xl overflow-hidden group hover:border-primary/50 transition-colors duration-500">
