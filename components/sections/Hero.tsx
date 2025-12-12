@@ -65,13 +65,13 @@ export default function Hero() {
                     </a>
 
 
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/tejasekhande1/" target="_blank" rel="noopener noreferrer">
                         <Button variant="outline">
                             <Github className="mr-2 w-4 h-4" /> GitHub
                         </Button>
                     </a>
 
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/tejas-ekhande/" target="_blank" rel="noopener noreferrer">
                         <Button variant="outline">
                             <Linkedin className="mr-2 w-4 h-4" /> LinkedIn
                         </Button>
